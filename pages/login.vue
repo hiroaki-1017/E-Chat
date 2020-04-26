@@ -8,14 +8,16 @@
     </div>
     <!-- ログインしていない時に表示される画面 -->
     <div v-else>
-      
+      <h1>ワークトークにようこそ</h1>
       メール<br>
       <input type="text" v-model="email"><br>
       パスワード<br>
       <input type="password" v-model="password"><br>
-      <button v-on:click="login">ログイン</button>
-      <button v-on:click="googleLogin">googleでログイン</button>
-      <button v-on:click="register">新規登録</button>
+      <div class="Approval">
+        <button v-on:click="login" class="login">ログイン</button>
+        <button v-on:click="register" class="register">新規登録</button>
+        <button v-on:click="googleLogin" class="google"> googleでログイン</button>
+      </div>
     </div>
   </div>
 </template>
@@ -73,3 +75,12 @@ export default {
   }
 }
 </script>
+<style scoped>
+@media screen and (max-width: 720px){
+
+button {
+    display: block;
+}
+
+}
+</style>
