@@ -28,6 +28,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: "~plugins/persistedstate.js", ssr: false },
+    "~/plugins/firebase.js",
   ],
   /*
   ** Nuxt.js dev-modules
@@ -48,6 +50,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    databaseURL: "https://worktalk-10bef.firebaseio.com"
   },
   /*
   ** Build configuration

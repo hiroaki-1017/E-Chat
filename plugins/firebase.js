@@ -9,9 +9,6 @@ if (!firebase.apps.length) {
     storageBucket: "worktalk-10bef.appspot.com",
     messagingSenderId: "837310087476",
     appId: "1:837310087476:web:e0021e6bd83cbb32026561"
-
-
-    
   })
 }
 
