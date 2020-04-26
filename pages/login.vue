@@ -8,6 +8,7 @@
     </div>
     <!-- ログインしていない時に表示される画面 -->
     <div v-else>
+      
       メール<br>
       <input type="text" v-model="email"><br>
       パスワード<br>
