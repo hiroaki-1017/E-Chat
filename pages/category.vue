@@ -12,6 +12,9 @@
 import workcategory from "@/components/workcategory.vue";
 
 export default {
+  components: {
+    workcategory,
+  }
     
 }
 </script>
