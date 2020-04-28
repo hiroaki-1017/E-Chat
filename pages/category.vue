@@ -2,28 +2,28 @@
   <members-only>
     <div id="app">
       <a href="/accunt">アカウントページへ</a>
-      <div class="mainCategory" v-for="(item, key) in categoryItem" :key="key">
-        <div class="category">
-          {{item.name}}
-        </div>
+      <div class="item" v-for="product in item" v-bind:key="product.name">
+          <p>{{product.name}}</p>
       </div>
     </div>
   </members-only>
 </template>
 <script>
 export default {
-  el: '#app',
-  data: {
-    categoryItem: [
-      {name: '公務員'}
-    ]
-  }
+    data: {
+        item: [
+            { name: 'Michel<br>写真' },
+            { name: 'Reiji<br>写真' },
+            { name: 'Waiyade<br>写真' },
+            { name: 'Ojei<br>写真' }
+        ]
+    },
 }
 </script>
 <style>
 @media screen and (max-width: 720px) {
 
-  .category{
+  .item{
     height: 110px;
     width: 180px;
     background-color: #00CDFF;
