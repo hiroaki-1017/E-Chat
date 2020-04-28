@@ -1,7 +1,7 @@
 <template>
-  <div class="category">
-      <div class="categoryItem" v-for="elem in list" :key="elem.name">
-          {{elem.name}}
+  <div class="categoryItem">
+      <div v-for="elem in list" v-bind:key="elem.name">
+          <p>{{elem.name}}</p>
       </div>
   </div>
 </template>
@@ -12,9 +12,9 @@ import Vue from 'vue'
 
 export default ({
 data: {
-    list: [
+    list : [
         {name: '公務員'},
-        {name: '美容'}
+        {name: '美容'},
     ]
 }
   
@@ -24,7 +24,7 @@ data: {
 
 <style>
 
-.categoryItem {
+.categoryItem{
     height: 110px;
     width: 180px;
     background-color: #00CDFF;
