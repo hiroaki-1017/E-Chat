@@ -6,7 +6,8 @@
       <br />
       <button v-on:click="logout">ログアウト</button>
       <br />
-      <a href="/category">カテゴリーページへ</a>
+      <a href="/accunt">マイページ</a>
+      <workcategory />
     </div>
     <!-- ログインしていない時に表示される画面 -->
     <div class="userInfo" v-else>
@@ -35,7 +36,13 @@
 <script>
 import firebase from "~/plugins/firebase";
 import { mapActions, mapState, mapGetters } from "vuex";
+import workcategory from "@/components/workcategory.vue";
+
 export default {
+  
+  components: {
+    workcategory,
+  },
   data() {
     return {
       email: "",

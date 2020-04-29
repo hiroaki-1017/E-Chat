@@ -5,14 +5,12 @@
       {{ user.email }}でログイン中です<br>
       <button v-on:click="logout">ログアウト</button><br>
       <a href="/category">カテゴリーページへ</a>
+      
     </div>
     <!-- ログインしていない時に表示される画面 -->
     <div v-else>
-      メール<br>
-      <input type="text" v-model="email"><br>
-      パスワード<br>
-      <input type="password" v-model="password"><br>
-      <button v-on:click="login">ログイン</button>
+      <p>ログインしてください</p>
+      <a href="/login">ログインページ</a>
     </div>
   </div>
 </template>
@@ -58,3 +56,18 @@ export default {
   }
 }
 </script>
+
+<style>
+
+button {
+    display: block;
+    color: #ffff;
+    background-color: #00cdff;
+    padding: 5px 70px;
+    border-radius: 7px;
+    outline: 0;
+    border: none;
+    margin: auto;
+  }
+
+</style>
