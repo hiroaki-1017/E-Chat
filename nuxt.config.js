@@ -45,7 +45,6 @@ export default {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/bulma'
   ],
   /*
   ** Axios module configuration

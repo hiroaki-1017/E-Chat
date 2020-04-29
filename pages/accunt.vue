@@ -4,7 +4,6 @@
     <div v-if="isAuthenticated">
       {{ user.email }}でログイン中です<br>
       <button v-on:click="logout">ログアウト</button><br>
-      <a href="/category">カテゴリーページへ</a>
       
     </div>
     <!-- ログインしていない時に表示される画面 -->
@@ -19,6 +18,10 @@
 import firebase from '~/plugins/firebase'
 import { mapActions, mapState, mapGetters } from 'vuex'
 export default {
+  fetch ({store}) {
+    store.commit('resetMenu')
+  },
+
   data() {
     return {
       email: '',

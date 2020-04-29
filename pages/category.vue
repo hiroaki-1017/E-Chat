@@ -1,7 +1,6 @@
 <template>
   <members-only>
     <div id="app">
-      <a href="/accunt">アカウントページへ</a>
       <workcategory />
     </div>
   </members-only>
@@ -14,6 +13,10 @@ import workcategory from "@/components/workcategory.vue";
 export default {
   components: {
     workcategory,
+  },
+
+  fetch ({store}) {
+    store.commit('resetMenu')
   }
     
 }

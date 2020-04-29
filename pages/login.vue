@@ -6,7 +6,6 @@
       <br />
       <button v-on:click="logout">ログアウト</button>
       <br />
-      <a href="/accunt">マイページ</a>
       <workcategory />
     </div>
     <!-- ログインしていない時に表示される画面 -->
