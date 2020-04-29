@@ -39,6 +39,10 @@ import workcategory from "@/components/workcategory.vue";
 
 export default {
   
+  fetch ({store}) {
+    store.commit('resetMenu')
+  },
+
   components: {
     workcategory,
   },
