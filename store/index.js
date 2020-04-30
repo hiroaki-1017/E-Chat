@@ -2,11 +2,18 @@ export const strict = false
 
 export const state = () => ({
   user: null,
+  isMenuActive: false
 })
 
 export const mutations = {
   setUser (state, payload) {
     state.user = payload
+  },
+  toggleMenu (state) {
+    state.isMenuActive = !state.isMenuActive
+  },
+  resetMenu (state) {
+    state.isMenuActive = false
   }
 }
 
@@ -21,21 +28,3 @@ export const getters = {
     return !!state.user
   }
 }
-
-import Vuex from 'vuex'
-
-const store = () => new Vuex.Store({
-  state: {
-    isMenuActive: false
-  },
-  mutations: {
-    toggleMenu (state) {
-      state.isMenuActive = !state.isMenuActive
-    },
-    resetMenu (state) {
-      state.isMenuActive = false
-    }
-  }
-})
-
-export default store

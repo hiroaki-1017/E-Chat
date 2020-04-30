@@ -2,9 +2,6 @@
   <div>
     <!-- ログイン中に表示される画面 -->
     <div v-if="isAuthenticated">
-      {{ user.email }}でログイン中です
-      <br />
-      <button v-on:click="logout">ログアウト</button>
       <br />
       <workcategory />
     </div>
