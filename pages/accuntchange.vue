@@ -5,22 +5,32 @@
       <button v-on:click="logout">ログアウト</button>
       <br />
       <div class="container">
-        <div class="userName">
-          <p>りりあ</p>
+        <!-- 名前変更 -->
+        <div class="edituser row">
+          <div class="userNameEdit col-3">
+            <p>名前</p>
+          </div>
+          <div class="nameEdit col-9"></div>
         </div>
         <div class="profileIcon row">
           <img src="~/assets/riria.png" class="col-4 profileImg img-fluid" width="80" />
-          <div class="profileEdit col-7 col-offset-1">
+          <div class="profileImgEdit col-7 col-offset-1">
             <p>プロフィール写真を更新</p>
           </div>
         </div>
-        <div class="profileText">
-          <p>新米消防士です。何かと教えていただきたいです</p>
-        </div>
-        <div class="change">
-          <div class="changeBottun">
-            <p>更新</p>
+        <div class="row">
+          <div class="textEdit col-5 col-offset-7">
+            <p>紹介テキスト</p>
           </div>
+        </div>
+        <div class="profileTextEdit"></div>
+
+        <div class="change">
+          <nuxt-link to="/accunt">
+            <div class="changeBottun">
+              <p>更新</p>
+            </div>
+          </nuxt-link>
         </div>
         <div class="koukoku"></div>
       </div>
@@ -96,10 +106,21 @@ button {
   margin: auto;
 }
 
-.userName {
-  font-size: 1.4rem;
-  text-align: center;
-  font-weight: 600;
+.edituser {
+  align-items: center;
+}
+
+.userNameEdit {
+  font-size: 0.9rem;
+  font-weight: 550;
+  color: #999999;
+}
+
+.nameEdit {
+  width: 85%;
+  height: 25px;
+  border-radius: 6px;
+  border: solid 0.8px #999999;
 }
 
 .profileIcon {
@@ -107,13 +128,11 @@ button {
   margin-top: 18px;
 }
 
-.profileEdit {
-  border: solid 1px #999999;
-  border-radius: 7px;
+.profileImgEdit {
   height: 35px;
 }
 
-.profileEdit p {
+.profileImgEdit p {
   font-size: 0.8rem;
   font-weight: 550;
   text-align: center;
@@ -121,26 +140,38 @@ button {
   color: #999999;
 }
 
-.profileText {
-  margin-top: 20px;
-  text-align: center;
+.textEdit p {
+  font-size: 0.9rem;
+  font-weight: 550;
+  color: #999999;
 }
 
-.profileText p {
-  font-size: 0.8rem;
-  font-weight: 550;
+.profileTextEdit {
+  margin-top: 20px;
+  margin: auto;
+  width: 90%;
+  height: 90px;
+  border-radius: 6px;
+  border: solid 0.8px #999999;
 }
 
 .change {
-  text-align: center;
+  margin-top: 50px;
 }
 
 .changeBottun {
   background: #00cdff;
   width: 30%;
+  margin: auto;
+  border-radius: 6px;
+  padding: 3px 0 3px 0;
 }
 
 .change p {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 550;
+  color: #ffff;
 }
 
 .koukoku {
