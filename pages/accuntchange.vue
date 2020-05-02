@@ -10,7 +10,7 @@
           <div class="userNameEdit col-3">
             <p>名前</p>
           </div>
-          <div class="nameEdit col-9"></div>
+          <div class="nameEdit col-8 col-offset-1"></div>
         </div>
         <div class="profileIcon row">
           <img src="~/assets/riria.png" class="col-4 profileImg img-fluid" width="80" />
