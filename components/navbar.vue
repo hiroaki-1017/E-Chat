@@ -41,6 +41,28 @@
     margin: 15px 0 ;
   }
 }
+
+.navbar-burger {
+    height: 50px;
+  }
+
+  .navbar-burger span {
+    height: 2.5px;/*線の太さ*/
+    width: 25px;/*長さ*/
+    margin-right: 10px;
+  }
+
+  .navbar-menu {
+    width: 100%;
+    background-color: #00CDFF;
+  }
+
+  .navbar-item {
+    color: #FFFF;
+    font-weight: 600;
+    text-align: center;
+    margin: 15px 0 ;
+  }
 </style>
 
 <script>

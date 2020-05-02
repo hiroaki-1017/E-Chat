@@ -23,7 +23,9 @@
         <button v-on:click="register">新規登録</button>
       </div>
       <div class="googleBotton">
-        <button v-on:click="googleLogin" class="google">google</button>
+        <button v-on:click="googleLogin" class="google">
+          <img src="~/assets/google.png" class="img-fluid" width="75%" />
+        </button>
       </div>
     </div>
   </div>
@@ -121,7 +123,7 @@ export default {
   }
 
   .google {
-    background-color: #dd4b39;
+    background-color: #FFFF;
   }
 
   input {
@@ -160,4 +162,60 @@ export default {
     font-size: 22px;
   }
 }
+
+.mainlogo {
+    height: 50px;
+    margin: 30px 0px 90px 0px;
+  }
+
+  button {
+    display: block;
+    color: #ffff;
+    background-color: #00cdff;
+    padding: 5px 70px;
+    border-radius: 7px;
+    outline: 0;
+    border: none;
+    margin: auto;
+  }
+
+  .google {
+    background-color: #FFFF;
+  }
+
+  input {
+    text-align: left;
+    padding: 3px 25px;
+    border-radius: 7px;
+    border: solid 0.7px #b8b8b8;
+  }
+
+  .userInfo {
+    text-align: center;
+  }
+
+  .loginWith {
+    margin-bottom: 40px;
+  }
+
+  .login,.register,.googleBotton {
+    margin-bottom: 25px;
+  }
+
+  .mail {
+    margin-bottom: 20px;
+  }
+
+  .pass {
+    margin-bottom: 50px;
+  }
+
+  .loginTitle {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: 700;
+    color: #00cdff;
+    font-size: 22px;
+  }
 </style>
