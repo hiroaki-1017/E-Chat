@@ -6,10 +6,10 @@
       <br />
       <div class="container">
         <div class="userName">
-          <p>りりあ</p>
+          <p>{{ user.displayName}}</p>
         </div>
         <div class="profileIcon row">
-          <img src="~/assets/riria.png" class="col-4 profileImg img-fluid" width="80" />
+          <img :src="user.photoURL" class="col-4 profileImg img-fluid" width="80" />
           <nuxt-link to="/accuntchange" class="col-7 col-offset-1">
             <div class="profileEdit">
               <p>プロフィールを編集</p>
@@ -17,7 +17,7 @@
           </nuxt-link>
         </div>
         <div class="profileText">
-          <p>新米消防士です。何かと教えていただきたいです</p>
+          <p>Do you like bass ???</p>
         </div>
         <div class="koukoku"></div>
       </div>
@@ -40,7 +40,9 @@ export default {
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      displayName: "",
+      photoURL: ''
     };
   },
   computed: {
@@ -57,7 +59,7 @@ export default {
     login() {
       firebase
         .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
+        .signInWithEmailAndPassword(this.email, this.password, this.displayName, this.photoURL)
         .then(user => {
           // ログインしたら飛ぶページを指定
           // this.$router.push("/member-page")
@@ -82,6 +84,11 @@ export default {
 </script>
 
 <style>
+
+.container {
+  display: block;
+}
+
 button {
   display: block;
   color: #ffff;

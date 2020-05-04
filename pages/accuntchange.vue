@@ -8,12 +8,12 @@
         <!-- 名前変更 -->
         <div class="edituser row">
           <div class="userNameEdit col-3">
-            <p>名前</p>
+            <p>{{ user.displayName}}</p>
           </div>
           <div class="nameEdit col-8 col-offset-1"></div>
         </div>
         <div class="profileIcon row">
-          <img src="~/assets/riria.png" class="col-4 profileImg img-fluid" width="80" />
+          <img :src="user.photoURL" class="col-4 profileImg img-fluid" width="80" />
           <div class="profileImgEdit col-7 col-offset-1">
             <p>プロフィール写真を更新</p>
           </div>
@@ -53,7 +53,9 @@ export default {
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      displayName: "",
+      photoURL: ''
     };
   },
   computed: {
@@ -70,7 +72,7 @@ export default {
     login() {
       firebase
         .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
+        .signInWithEmailAndPassword(this.email, this.password, this.displayName, this.photoURL)
         .then(user => {
           // ログインしたら飛ぶページを指定
           // this.$router.push("/member-page")
