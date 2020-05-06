@@ -10,10 +10,10 @@
       <img class="mainlogo" src="~/assets/logo.png" />
       <br />
       <div class="mail">
-        <input type="text" placeholder="メールアドレス" v-model="email" />
+        <input id="mailAddress" type="mailAddress" placeholder="メールアドレス" v-model="email" required/>
       </div>
       <div class="pass">
-        <input type="password" placeholder="パスワード" v-model="password" />
+        <input id="password" type="password" placeholder="パスワード" v-model="password" required/>
       </div>
       <div class="login">
         <button v-on:click="login">ログイン</button>
