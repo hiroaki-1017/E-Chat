@@ -23,14 +23,15 @@ export default {
   ** Global CSS
   */
   css: [
-    
+
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
     { src: "~plugins/persistedstate.js", ssr: false },
-    "~/plugins/firebase.js",
+    '~/plugins/auth',
+    '~/plugins/firebase.js'
   ],
   /*
   ** Nuxt.js dev-modules

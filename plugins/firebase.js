@@ -1,15 +1,16 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+import 'firebase/auth'
+import 'firebase/storage'
+import config from './../firebaseConfig.json'
 
 if (!firebase.apps.length) {
-  firebase.initializeApp({
-    apiKey: "AIzaSyAKRejR__XXB3hufe5ghtMwzrKyU5Q4NDM",
-    authDomain: "worktalk-10bef.firebaseapp.com",
-    databaseURL: "https://worktalk-10bef.firebaseio.com",
-    projectId: "worktalk-10bef",
-    storageBucket: "worktalk-10bef.appspot.com",
-    messagingSenderId: "837310087476",
-    appId: "1:837310087476:web:e0021e6bd83cbb32026561"
-  })
+  firebase.initializeApp({ ...config })
 }
 
-export default firebase
+export default ({ app }, inject) => {
+  inject('firebase', firebase)
+  inject('firestore', firebase.firestore())
+  inject('fireAuth', firebase.auth())
+  inject('fireStorage', firebase.storage())
+}
