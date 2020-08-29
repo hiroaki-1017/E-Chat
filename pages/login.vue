@@ -9,24 +9,11 @@
     <div class="userInfo" v-else>
       <img class="mainlogo" src="~/assets/logo.png" />
       <br />
-      <div class="mail">
-        <input id="mailAddress" type="mailAddress" placeholder="メールアドレス" v-model="email" required/>
-      </div>
-      <div class="pass">
-        <input id="password" type="password" placeholder="パスワード" v-model="password" required/>
-      </div>
-      <div class="login">
-        <button v-on:click="login">ログイン</button>
-      </div>
-      <p class="loginWith">You can also login with …</p>
-      <div class="register">
-        <button v-on:click="register">新規登録</button>
-      </div>
-      <div class="googleBotton">
-        <button v-on:click="googleLogin" class="google">
+      <form class="googleBotton" @submit.prevent="onSubmit">
+        <button type="submit" v-on:click="googleLogin" class="google">
           <img src="~/assets/google.png" class="img-fluid" width="75%" />
         </button>
-      </div>
+      </form>
     </div>
   </div>
 </template>
@@ -37,69 +24,14 @@ import { mapActions, mapState, mapGetters } from "vuex";
 import workcategory from "@/components/workcategory.vue";
 
 export default {
-  
-  fetch ({store}) {
-    store.commit('resetMenu')
-  },
 
   components: {
     workcategory,
   },
-  data() {
-    return {
-      email: "",
-      password: ""
-    };
-  },
-  computed: {
-    ...mapState(["user"]),
-    ...mapGetters(["isAuthenticated"])
-  },
-  mounted() {
-    firebase.auth().onAuthStateChanged(user => {
-      this.setUser(user);
-    });
-  },
   methods: {
-    ...mapActions(["setUser"]),
-    googleLogin: function() {
-      firebase
-        .auth()
-        .signInWithRedirect(new firebase.auth.GoogleAuthProvider());
-    },
-    login() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(user => {
-          // ログインしたら飛ぶページを指定
-          // this.$router.push("/member-page")
-        })
-        .catch(error => {
-          alert(error);
-        });
-    },
-    logout() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          this.setUser(null);
-        })
-        .catch(error => {
-          alert(error);
-        });
-    },
-    register() {
-      var mailAddress = document.getElementById("mailAddress").value;
-      var password = document.getElementById("password").value;
-
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(mailAddress, password)
-        .catch(function(error) {
-          alert("登録できません（" + error.message + "）");
-        });
+    onSubmit() {
+      const provider = new this.$firebase.auth.GoogleAuthProvider()
+      this.$fireAuth.signInWithRedirect(provider)
     }
   }
 };
