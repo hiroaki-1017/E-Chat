@@ -1,7 +1,6 @@
 <template>
   <div>
     <!-- ログイン中に表示される画面 -->
-    <div v-if="isAuthenticated">
       <button v-on:click="logout">ログアウト</button>
       <br />
       <div class="container">
@@ -23,10 +22,6 @@
       </div>
     </div>
     <!-- ログインしていない時に表示される画面 -->
-    <div v-else>
-      <p>ログインしてください</p>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -36,50 +31,6 @@ export default {
   fetch({ store }) {
     store.commit("resetMenu");
   },
-
-  data() {
-    return {
-      email: "",
-      password: "",
-      displayName: "",
-      photoURL: ''
-    };
-  },
-  computed: {
-    ...mapState(["user"]),
-    ...mapGetters(["isAuthenticated"])
-  },
-  mounted() {
-    firebase.auth().onAuthStateChanged(user => {
-      this.setUser(user);
-    });
-  },
-  methods: {
-    ...mapActions(["setUser"]),
-    login() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password, this.displayName, this.photoURL)
-        .then(user => {
-          // ログインしたら飛ぶページを指定
-          // this.$router.push("/member-page")
-        })
-        .catch(error => {
-          alert(error);
-        });
-    },
-    logout() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          this.setUser(null);
-        })
-        .catch(error => {
-          alert(error);
-        });
-    }
-  }
 };
 </script>
 
